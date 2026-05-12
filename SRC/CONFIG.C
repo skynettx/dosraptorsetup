@@ -7,6 +7,8 @@
 
 #include "main.h"
 
+//#define CONFIG_BUGFIX
+
 void Pos(item_t* item)
 {
 	gotoxy(item->x + 1, item->y + 1);
@@ -318,7 +320,6 @@ int GetJoyButton(void)
 {
 	int rval = -1;
 	int num;
-	//int catchkey;
 
 	SaveScreen();
 	DrawPup(&mousentr);
@@ -357,17 +358,19 @@ int GetJoyButton(void)
 			break;
 		}
 
-		/*if (kbhit())
+#ifdef CONFIG_BUGFIX
+		if (kbhit())
 		{
-			catchkey = _bios_keybrd(_KEYBRD_READY) >> 8;
+			int catchkey = _bios_keybrd(_KEYBRD_READY) >> 8;
 			if (catchkey == SC_ESC)
 				break;
 
 			getch();
-		}*/
+		}
+#else
 		if ((_bios_keybrd(_KEYBRD_READY) >> 8) == SC_ESC)
 			break;
-
+#endif // CONFIG_BUGFIX
 	}
 
 	RestoreScreen();
@@ -561,7 +564,6 @@ int GetMouseButton(void)
 {
 	int rval = -1;
 	union REGS r;
-	//int catchkey;
 
 	SaveScreen();
 	DrawPup(&mousentr);
@@ -585,17 +587,19 @@ int GetMouseButton(void)
 		if (rval != -1)
 			break;
 
-		/*if (kbhit())
+#ifdef CONFIG_BUGFIX
+		if (kbhit())
 		{
-			catchkey = _bios_keybrd(_KEYBRD_READY) >> 8;
+			int catchkey = _bios_keybrd(_KEYBRD_READY) >> 8;
 			if (catchkey == SC_ESC)
 				break;
 
 			getch();
-		}*/
-
+		}
+#else
 		if ((_bios_keybrd(_KEYBRD_READY) >> 8) == SC_ESC)
 			break;
+#endif // CONFIG_BUGFIX
 	}
 
 	RestoreScreen();
