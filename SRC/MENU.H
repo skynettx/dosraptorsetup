@@ -2,6 +2,26 @@
 // MENU.H
 //
 
+typedef enum
+{
+    COLOR_BLACK,
+    COLOR_BLUE,
+    COLOR_GREEN,
+    COLOR_CYAN,
+    COLOR_RED,
+    COLOR_MAGENTA,
+    COLOR_BROWN,
+    COLOR_GREY,
+    COLOR_DARK_GREY,
+    COLOR_BRIGHT_BLUE,
+    COLOR_BRIGHT_GREEN,
+    COLOR_BRIGHT_CYAN,
+    COLOR_BRIGHT_RED,
+    COLOR_BRIGHT_MAGENTA,
+    COLOR_YELLOW,
+    COLOR_BRIGHT_WHITE
+} COLOR;
+
 //
 // Structures for menu
 //
@@ -37,5 +57,6 @@ void Sound(int freq, int dly);
 void ResetHelpLabel(void);
 void SetHelpLabel(void);
 void DrawHelpLabel(int id, const char* label);
+void SetInvertColor(int colorforeground, int colorbackground);
 
 extern short menukey;

@@ -15,6 +15,7 @@ int hlfmain = 0, hlfmusic = 0, hlfmusicmidiport = 0, hlfsbport = 0;
 int hlfsound = 0, hlfsbirq = 0, hlfsbdma = 0, hlfnumdig = 0;
 int hlfcontrol = 0, hlfconconfig = 0, hlfkeyconfig = 0, hlfmouconfig = 0;
 int hlfjoyconfig = 0;
+int inv_color = 0x70;
 
 //
 // Make a sound!
@@ -40,6 +41,14 @@ void SetMark(item_t* item, int value)
 }
 
 //
+// Set invert color for menu item
+//
+void SetInvertColor(int colorforeground, int colorbackground)
+{
+	inv_color = (colorbackground * 16) + colorforeground;
+}
+
+//
 // Invert the menu item
 //
 void Invert(item_t* item)
@@ -52,7 +61,7 @@ void Invert(item_t* item)
 
 	for (i = 0; i < item->w; i++)
 	{
-		*(screen + 1) = 0x70;
+		*(screen + 1) = inv_color;
 		screen += 2;
 	}
 
