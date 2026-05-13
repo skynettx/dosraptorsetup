@@ -123,7 +123,7 @@ void IDConfigKeyboard(void)
 	CONTS turk;
 	int rval;
 
-	SetInvertColor(COLOR_BLUE, COLOR_GREY);
+	SetInvertAttribute(0, COLOR_BLUE, COLOR_GREY);
 	SaveScreen();
 	DrawPup(&idkeysel);
 
@@ -288,7 +288,7 @@ void IDConfigKeyboard(void)
 
 func_exit:
 
-	SetInvertColor(COLOR_BLACK, COLOR_GREY);
+	SetInvertAttribute(0, COLOR_BLACK, COLOR_GREY);
 	RestoreScreen();
 	return;
 }
@@ -399,7 +399,7 @@ void IDConfigJoy(void)
 	int	mega;
 	int	chspecial;
 
-	SetInvertColor(COLOR_BLUE, COLOR_GREY);
+	SetInvertAttribute(0, COLOR_BLUE, COLOR_GREY);
 	SaveScreen();
 	DrawPup(&idjoysel);
 
@@ -533,7 +533,7 @@ void IDConfigJoy(void)
 
 func_exit:
 
-	SetInvertColor(COLOR_BLACK, COLOR_GREY);
+	SetInvertAttribute(0, COLOR_BLACK, COLOR_GREY);
 	RestoreScreen();
 	return;
 }
@@ -626,7 +626,7 @@ void IDConfigMouse(void)
 	int mega;
 	int chspecial;
 
-	SetInvertColor(COLOR_BLUE, COLOR_GREY);
+	SetInvertAttribute(0, COLOR_BLUE, COLOR_GREY);
 	SaveScreen();
 	DrawPup(&idmousel);
 	turk = curk;
@@ -757,7 +757,7 @@ void IDConfigMouse(void)
 
 func_exit:
 
-	SetInvertColor(COLOR_BLACK, COLOR_GREY);
+	SetInvertAttribute(0, COLOR_BLACK, COLOR_GREY);
 	RestoreScreen();
 	return;
 }

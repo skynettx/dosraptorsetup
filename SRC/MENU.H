@@ -57,6 +57,6 @@ void Sound(int freq, int dly);
 void ResetHelpLabel(void);
 void SetHelpLabel(void);
 void DrawHelpLabel(int id, const char* label);
-void SetInvertColor(int colorforeground, int colorbackground);
+void SetInvertAttribute(int blinktext, unsigned char colorforeground, unsigned char colorbackground);
 
 extern short menukey;
